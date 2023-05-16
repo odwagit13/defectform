@@ -1,0 +1,30 @@
+import streamlit as st
+
+def record_defects():
+    st.header("Defect Recording Form")
+
+    # Defect details
+    defect_name = st.text_input("Defect Name")
+    defect_description = st.text_area("Defect Description")
+    defect_priority = st.selectbox("Defect Priority", ["High", "Medium", "Low"])
+
+    # Submit button
+    if st.button("Submit"):
+        # Save the defect record to a database or perform any desired action
+        # Here, we'll just display the recorded details
+        st.success("Defect recorded successfully!")
+        st.write("**Defect Name:**", defect_name)
+        st.write("**Defect Description:**", defect_description)
+        st.write("**Defect Priority:**", defect_priority)
+
+def main(form):
+    st.set_page_config(page_title="Defect Recording App")
+
+    # Page title
+    st.title("Defect Recording App")
+
+    # Call the function to record defects
+    record_defects()
+
+if __name__ == "__main__":
+    main(form)
